@@ -1,0 +1,68 @@
+{
+	"name": "Union_trnasf",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "mumbi_sources",
+						"type": "DatasetReference"
+					},
+					"name": "mumbi"
+				},
+				{
+					"dataset": {
+						"referenceName": "delhi_sources",
+						"type": "DatasetReference"
+					},
+					"name": "delhi"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "destination",
+						"type": "DatasetReference"
+					},
+					"name": "destination"
+				}
+			],
+			"transformations": [
+				{
+					"name": "union1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          Month as string,",
+				"          Salary as string,",
+				"          Profit as string,",
+				"          Location as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> mumbi",
+				"source(output(",
+				"          Month as string,",
+				"          Salary as string,",
+				"          Profit as string,",
+				"          Location as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> delhi",
+				"mumbi, delhi union(byName: true)~> union1",
+				"union1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          User as string,",
+				"          Department as string,",
+				"          Designation as string",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> destination"
+			]
+		}
+	}
+}

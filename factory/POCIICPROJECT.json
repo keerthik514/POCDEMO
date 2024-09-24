@@ -1,0 +1,9 @@
+{
+	"name": "POCIICPROJECT",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "532164f2-cb96-4ae6-a69e-32cacf4b4ff6",
+		"tenantId": "b85da67d-9ca3-474a-aece-5f8333fe6dc8"
+	}
+}

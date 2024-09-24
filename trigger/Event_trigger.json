@@ -1,0 +1,24 @@
+{
+	"name": "Event_trigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "Event__trigger",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/inputevent/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/378a14a1-ab6f-4425-a43e-b0e94d29a38a/resourceGroups/POC_IIC_project/providers/Microsoft.Storage/storageAccounts/iicproject",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}

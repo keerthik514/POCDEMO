@@ -1,0 +1,19 @@
+{
+	"name": "Delate_data",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "delate_input",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "customers-1000.csv",
+				"container": "input-data"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
