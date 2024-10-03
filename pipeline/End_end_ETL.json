@@ -25,16 +25,6 @@
 									"type": "Expression"
 								}
 							}
-						},
-						"linkedServiceParameters": {
-							"sink1": {
-								"schemaLinkedService": {
-									"path": {
-										"value": "@pipeline().parameters.path",
-										"type": "Expression"
-									}
-								}
-							}
 						}
 					},
 					"compute": {
